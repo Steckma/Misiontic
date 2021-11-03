@@ -17,7 +17,7 @@ public class Reservation implements Serializable{
     private Integer idReservation;
     private Date startDate; 
     private Date devolutionDate;
-    private String status;
+    private String status="created";
     // relaciones
     @ManyToOne
     @JoinColumn (name = "id")

@@ -23,7 +23,6 @@ public class ReservationServicio {
     }
 
     public Reservation save(Reservation reservation){
-        reservation.setStatus("created");
     // verificamos si el departamento es nuevo y de ser asi guarda
         if (reservation.getIdReservation()== null){
             return reservationRepositorio.save(reservation);
