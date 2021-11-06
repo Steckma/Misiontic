@@ -17,6 +17,16 @@ public class Reservation implements Serializable{
     private Integer idReservation;
     private Date startDate; 
     private Date devolutionDate;
+    private String status;
+    public String getStatus() {
+        return status;
+    }
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    public void setCostume(Costume costume) {
+        this.costume = costume;
+    }
     // relaciones
     @ManyToOne
     @JoinColumn (name = "id")
@@ -48,12 +58,6 @@ public class Reservation implements Serializable{
     }
     public void setDevolutionDate(Date devolutionDate) {
         this.devolutionDate = devolutionDate;
-    }
-    public String getStatus() {
-        return status;
-    }
-    public void setStatus(String status) {
-        this.status = status;
     }
     // getter and setter relaciones
     public Costume getCostume() {

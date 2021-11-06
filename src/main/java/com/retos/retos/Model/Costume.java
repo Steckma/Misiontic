@@ -22,15 +22,15 @@ public class Costume implements Serializable {
     // relaciones
     @ManyToOne // relacion muchos a uno de computador con categoria
     @JoinColumn (name = "idCategory") // se ignora computador de categoria
-    @JsonIgnoreProperties ("costume") // para que no cree error y ciclo infinito
+    @JsonIgnoreProperties ("costumes") // para que no cree error y ciclo infinito
     private Category category;
 
     @OneToMany(cascade = CascadeType.PERSIST,mappedBy = "costume")
-    @JsonIgnoreProperties({"costume","client"})
+    @JsonIgnoreProperties({"costumes","client"})
     private List<Message> messages;  // relacion uno a muchos de computador con mensaje
 
     @OneToMany(cascade = CascadeType.PERSIST,mappedBy = "costume")
-    @JsonIgnoreProperties({"costume","client"})
+    @JsonIgnoreProperties({"costumes","client"})
     private List<Reservation> reservations; // relacion uno a muchos de computador con reservaciones
 
     // fin de relaciones
