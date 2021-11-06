@@ -31,11 +31,11 @@ public class ReservationServicio {
     public Reservation save(Reservation reservation){
     // verificamos si el departamento es nuevo y de ser asi guarda
         if (reservation.getIdReservation()== null){
-            reservation.setStatus("created");
             return reservationRepositorio.save(reservation);
         } else{ // si el objeto viene con numId se verifica si existe o no
             Optional <Reservation> consulta = reservationRepositorio.getReservation(reservation.getIdReservation());
             if (consulta.isEmpty()) {
+                reservation.setStatus("created");
                 return reservationRepositorio.save(reservation);
             } 
             if (reservation.getStartDate() != null) {
